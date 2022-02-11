@@ -1,0 +1,24 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+}
+.App{
+overflow: hidden;
+background: url("./accets//fon.jpg") center / cover no-repeat;
+height: 100vh;
+}
+.content{
+    display: grid;
+    grid-template-columns:500px 400px ;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-top: 50px;
+    &__page{
+        padding-left: 20px;
+    }
+}

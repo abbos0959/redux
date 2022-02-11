@@ -1,0 +1,33 @@
+{
+
+"news":[
+
+    {
+        "id":1,
+        "name":"My firs news",
+        "description":"I like task automation with npm but the usual way to run multiple commands concurrently is npm run watch-js & npm run watch-css. That's fine but it's hard to keep on track of different outputs. Also if one process fails, others still keep running and you won't even notice the difference.",
+        "category":"Hot news"
+    },
+    {
+        "id":2,
+        "name":"Football news",
+        "description":"I like task automation with npm but the usual way to run multiple commands concurrently is npm run watch-js & npm run watch-css. That's fine but it's hard to keep on track of different outputs. Also if one process fails, others still keep running and you won't even notice the difference.",
+        "category":"Sport news"
+    },
+    {
+        "id":3,
+        "name":" Xavi was trainer barselona",
+        "description":"I like task automation with npm but the usual way to run multiple commands concurrently is npm run watch-js & npm run watch-css. That's fine but it's hard to keep on track of different outputs. Also if one process fails, others still keep running and you won't even notice the difference.",
+        "category":"sport news"
+    },
+    {
+        "id":4,
+        "name":"My firs news",
+        "description":"I like task automation with npm but the usual way to run multiple commands concurrently is npm run watch-js & npm run watch-css. That's fine but it's hard to keep on track of different outputs. Also if one process fails, others still keep running and you won't even notice the difference.",
+        "category":"world news"
+    }
+],
+"filter":["all","hot","sport","world"]
+
+
+}
