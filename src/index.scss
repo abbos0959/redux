@@ -5,10 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-}
+
 .App{
-overflow: hidden;
+overflow: scroll;
 background: url("./accets//fon.jpg") center / cover no-repeat;
 height: 100vh;
 }
@@ -18,7 +17,15 @@ height: 100vh;
     max-width: 1040px;
     margin: 0 auto;
     padding-top: 50px;
+    
     &__page{
         padding-left: 20px;
     }
+}
+.abbos{
+    background-color: #6096FD;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    
 }

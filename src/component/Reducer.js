@@ -16,12 +16,27 @@ const reducer = (state = initialState, action) => {
         news: action.payload,
         newsloadingStatus: "Abbos",
       };
+      case "NEWS_FILTER":
+        return{
+          ...state,
+          filters:action.payload
+        }
     case "NEWS_FETCHING_ERROR":
       return {
         ...state,
         newsloadingStatus: "error",
       };
-
+    case "DELETE":
+      return{
+        ...state,
+    news:state.news.filter((val)=>val.id!==action.payload)
+      }
+      case "HOT":
+        return{
+          ...state,
+          news:state.news.filter((val)=>val.cat==action.payload)
+        }
+     
     default:
       return state;
   }
