@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="content">
-        <NewsList />
+        <NewsList /> 
         <div className="content-page">
           <NewsAddForm />
           <NewsFilter />

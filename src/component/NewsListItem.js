@@ -2,9 +2,11 @@ import React from "react";
 import news from "../accets/new.jpg";
 import { useDispatch } from "react-redux";
 import { deleted } from "./action";
+import {useHttp} from "../hook/useHttp"
 
 
 export const NewsListItem = ({ id, name, description, category }) => {
+  const {request}=useHttp()
   const dispatch=useDispatch()
   console.log( typeof category);
   let elementClassName;
@@ -22,6 +24,12 @@ export const NewsListItem = ({ id, name, description, category }) => {
     default:
       elementClassName = "bg-info bg-gradient";
   }
+
+  const HandleDelete=()=>{
+    request(`http://localhost:3001/news/${id}`,"DELETE")
+    .then(dispatch(deleted(id)))
+
+  }
   return (
     <li className={`card flex-row shadow-lg text-white my-2  ${elementClassName} `}>
       <img
@@ -35,7 +43,7 @@ export const NewsListItem = ({ id, name, description, category }) => {
         <p className="card-text">{description}</p>
       </div>
       <span className="position-absolute top-0 start-100 translate-middle badge border rounded-pill bg-light">
-        <button onClick={()=> dispatch(deleted(id))} type="button" aria-label="close" className="btn-close"></button>
+        <button onClick={HandleDelete} type="button" aria-label="close" className="btn-close"></button>
       </span>
     </li>
   );

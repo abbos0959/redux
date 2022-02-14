@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHttp } from "../hook/useHttp";
+import { v4 } from "uuid";
+import {NewsAddForma} from "./action"
 
 export const NewsAddForm = () => {
+  const [name, setname] = useState("");
+  const [description, setdescription] = useState("");
+  const [category, setcategory] = useState("");
+  const { request } = useHttp();
+  const dispatch=useDispatch()
+
+
+  const HandleSubmit=(e)=>{
+    e.preventDefault()
+    const newNews={id:v4(),name,description,category}
+    request("http://localhost:3001/news","POST",JSON.stringify(newNews))
+    .then(dispatch(NewsAddForma(newNews)))
+    setcategory("")
+    setname("")
+    setdescription("")
+  }
   return (
-    <form className=" abbos border p-4 mx-4 shadow-lg rounded">
+    <form onSubmit={HandleSubmit} className=" abbos border p-4 mx-4 shadow-lg rounded">
       <div className="mb-3">
-        <label htmlFor="name" className="form-label fs-4">
+        <label  htmlFor="name" className="form-label fs-4">
           Name for new News
         </label>
         <input
@@ -13,6 +33,8 @@ export const NewsAddForm = () => {
           type="text"
           required
           name="name"
+          value={name}
+          onChange={(e)=>setname(e.target.value)}
           placeholder="what is name of news"
         ></input>
       </div>
@@ -27,6 +49,8 @@ export const NewsAddForm = () => {
           id="text"
           type="text"
           required
+          value={description}
+          onChange={(e)=>setdescription(e.target.value)}
           name="text"
           placeholder="what is your news about"
         ></textarea>
@@ -36,14 +60,20 @@ export const NewsAddForm = () => {
         <label className="form-label" htmlFor="category">
           Choose category of news
         </label>
-        <select required className="form-select" id="category" name="category">
-          <option >News about...</option>
-          <option value="hot">Hot News</option>
-          <option value="sport"> sport news</option>
-          <option value="world"> world news</option>
+        <select onChange={(e)=>setcategory(e.target.value)} value={category} required className="form-select" id="category" name="category">
+          <option>News about...</option>
+          <option value="Hot news">Hot News</option>
+          <option value="Sport news"> sport news</option>
+          <option value="World news"> world news</option>
         </select>
       </div>
-      <button type="submit" className="btn btn-primary shadow-lg text-light w-100"> Create News</button>
+      <button
+        type="submit"
+        className="btn btn-primary shadow-lg text-light w-100"
+      >
+        
+        Create News
+      </button>
     </form>
   );
 };
