@@ -34,9 +34,12 @@ const reducer = (state = initialState, action) => {
         newsloadingStatus: "error",
       };
     case "DELETE":
+      const newNewList=state.news.filter((a)=>a.id!==action.payload)
       return {
         ...state,
-        news: state.news.filter((val) => val.id !== action.payload),
+        news: newNewList ,
+        filteredNews:state.activeFilter==="all" ? newNewList : newNewList.filter((a)=>a.category===state.activeFilter)
+      
       };
     // case "HOT":
     //   return {
@@ -48,6 +51,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         news: AddPost,
+        filteredNews:state.activeFilter==="all" ? AddPost : AddPost.filter(a=>a.category==state.activeFilter)
       };
     case "FILTERS_FETCHING":
       return {

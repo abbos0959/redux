@@ -5,10 +5,10 @@ import { deleted } from "./action";
 import {useHttp} from "../hook/useHttp"
 
 
-export const NewsListItem = ({ id, name, description, category }) => {
+export const NewsListItem = ({name, description, category,id }) => {
   const {request}=useHttp()
   const dispatch=useDispatch()
-  console.log( typeof category);
+  
   let elementClassName;
 
   switch (category) {
@@ -24,12 +24,19 @@ export const NewsListItem = ({ id, name, description, category }) => {
     default:
       elementClassName = "bg-info bg-gradient";
   }
+  // console.log(id)
 
   const HandleDelete=()=>{
+    console.log(id);
     request(`http://localhost:3001/news/${id}`,"DELETE")
     .then(dispatch(deleted(id)))
 
   }
+    
+
+  
+  
+    
   return (
     <li className={`card flex-row shadow-lg text-white my-2  ${elementClassName} `}>
       <img

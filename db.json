@@ -1,16 +1,38 @@
 {
   "news": [
     {
-      "id": "2d4de502-44b8-49c5-bcfc-81019816d53b",
-      "name": "d",
-      "description": "d",
+      "id": "ff1c0e16-7a47-47f1-8ea8-b2e7db45fd71",
+      "name": "Korea",
+      "description": "Why some North Korean defectors return to one of the world's",
       "category": ""
+    },
+    {
+      "id": "2e4a978a-af61-46a5-bef6-993c93acc706",
+      "name": "Buyuk Britaniya Yevropa Ittifoqi va G7 bilan Rossiyaga qarshi sanksiyalarni kelishib oldi",
+      "description": "Britaniya tashqi ishlar vaziri Liz Trassning ta’kidlashicha, barcha narsa Rossiyaning Ukrainaga bostirib kirishni rejalashtirayotganiga ishora qilmoqda. U Welt gazetasiga bergan intervyusida London hujum amalga oshirilgudek bo‘lsa,",
+      "category": "Hot news"
     }
   ],
   "filter": [
-    "all",
-    "hot",
-    "sport",
-    "world"
+    {
+      "name": "all",
+      "label": "All",
+      "className": "btn-outline-dark"
+    },
+    {
+      "name": "Hot news",
+      "label": "Hot news",
+      "className": "btn-danger"
+    },
+    {
+      "name": "Sport news",
+      "label": "Sport news",
+      "className": "btn-primary"
+    },
+    {
+      "name": "World news",
+      "label": "World news",
+      "className": "btn-success"
+    }
   ]
 }

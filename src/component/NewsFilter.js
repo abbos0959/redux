@@ -13,7 +13,6 @@ import {
 } from "../component/action";
 
 export const NewsFilter = () => {
-  
   const { request } = useHttp();
   const { news, filters, filterLoadingStatus, activeFilter } = useSelector(
     (state) => state
@@ -34,15 +33,15 @@ export const NewsFilter = () => {
     return <Error />;
   }
   const renderFilters = (arr) => {
-    if (arr.length == 0) {
+    if (arr.length === 0) {
       return <h3 className="text-center mt-5">Ma`lumot topilmadi</h3>;
     }
 
-    return arr.map(({ name, classNam, label }) => {
-      const btnClasses = classNames("btn", classNam, {
-        "active": name === activeFilter,
+    return arr.map(({ name, className, label }) => {
+      const btnClasses = classNames("btn", className, {
+        active: name === activeFilter,
       });
-      
+
       return (
         <button
           key={name}
@@ -51,20 +50,19 @@ export const NewsFilter = () => {
           onClick={() => dispatch(activeFilterChange(name))}
         >
           {label}
-        </button>
-        
-        
-      );
+        </button>)
+      
     });
   };
   const element = renderFilters(filters);
-  
 
   return (
     <div className="card shadow-lg mt-4 text-center mx-4">
       <div className="card-body">
         <p className="card-text"> Filter by category</p>
-        <div className="btn-group  ">{element}</div>
+        <div className="btn-group">
+          {element}
+          </div>
       </div>
     </div>
   );

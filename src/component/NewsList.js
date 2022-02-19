@@ -11,7 +11,7 @@ import {Error} from "./Error";
 import { NewsListItem } from "./NewsListItem";
 
 export const NewsList = () => {
-  const { news, newsloadingStatus, filters } = useSelector((state) => state);
+  const { news, newsloadingStatus,filteredNews,filterLoadingStatus, filters } = useSelector((state) => state);
   const dispatch = useDispatch();
   const { request } = useHttp();
   
@@ -24,9 +24,9 @@ export const NewsList = () => {
       .then((data) => dispatch(newsFetched(data)))
       .catch(dispatch(newsFetchingError()));
   }, []);
-  if (newsFetchingError === "loading") {
+  if (filterLoadingStatus === "loading") {
     return <Spinner />;
-  } else if (newsFetchingError === "error") {
+  } else if (filterLoadingStatus === "error") {
     return <Error />;
   }
 const renderNewList=(arr)=>{
@@ -37,7 +37,7 @@ const renderNewList=(arr)=>{
        return <NewsListItem id={id} {...props} />
    })
 }
-const element=renderNewList(news)
+const element=renderNewList(filteredNews)
   return (
       <ul>{element }</ul>
   )
